@@ -6,71 +6,68 @@ public class TempsDeCuisson {
     public static void main(String[] args) {
       
      Scanner console = new Scanner(System.in);
-     String typeDeViande;
-     String modeDeCuisson = "";
+     int typeDeViande;
+     int modeDeCuisson = 0;
      int poidsDeLaViande = 0;
      double tempsDeCuisson = 0;
 
+     String messageViande = "";
+     String messageCuisson = "";
+
      // Choix de la viande
      System.out.println("Quelle viande souhaitez vous ?");
-     System.out.println("- Pour du boeuf, tapez 'boeuf'");
-     System.out.println("- Pour de  l'agneau, tapez 'agneau'");
-     typeDeViande = console.nextLine();
+     System.out.println("- Pour du boeuf, tapez '1'");
+     System.out.println("- Pour de  l'agneau, tapez '2'");
+     typeDeViande = console.nextInt();
      
-
-    
-     
-    if (typeDeViande == "boeuf") {
+        if (typeDeViande == 1) {
         System.out.println("Quelle cuisson souhaitez vous ?");
-        System.out.println("- Pour une cuisson bleu, tapez 'bleu'");
-        System.out.println("- Pour une cuisson à point, tapez 'point'");
-        System.out.println("- Pour une cuisson bien cuit, tapez 'cuit'");
-        modeDeCuisson = console.nextLine();
+        System.out.println("- Pour une cuisson bleu, tapez '1'");
+        System.out.println("- Pour une cuisson à point, tapez '2'");
+        System.out.println("- Pour une cuisson bien cuit, tapez '3'");
+        modeDeCuisson = console.nextInt();
        
-        if (modeDeCuisson == "bleu") {
+        if (modeDeCuisson == 1) {
             System.out.println("Quelle quantité en gramme souhaitez vous ?");
             poidsDeLaViande = console.nextInt();
        
             tempsDeCuisson = poidsDeLaViande * 1.2;
         }
-        if (modeDeCuisson == "point") {
+        if (modeDeCuisson == 2) {
             System.out.println("Quelle quantité en gramme souhaitez vous ?");
             poidsDeLaViande = console.nextInt();
        
             tempsDeCuisson = poidsDeLaViande * 2.04;
             
         }
-        if (modeDeCuisson== "cuit") {
+        if (modeDeCuisson == 3) {
             System.out.println("Quelle quantité en gramme souhaitez vous ?");
             poidsDeLaViande = console.nextInt();
        
             tempsDeCuisson = poidsDeLaViande * 3;
             
         }
-    } else if (typeDeViande == "agneau") {
+    } else if (typeDeViande == 2) {
          // Choix de la cuisson
      System.out.println("Quelle cuisson souhaitez vous ?");
-     System.out.println("- Pour une cuisson bleu, tapez 'bleu'");
-     System.out.println("- Pour une cuisson à point, tapez 'point'");
-     System.out.println("- Pour une cuisson bien cuit, tapez 'cuit'");
-     modeDeCuisson = console.nextLine();
+     System.out.println("- Pour une cuisson bleu, tapez '1'");
+     System.out.println("- Pour une cuisson à point, tapez '2'");
+     System.out.println("- Pour une cuisson bien cuit, tapez '3'");
+     modeDeCuisson = console.nextInt();
      
-        if (modeDeCuisson == "bleu") {
+        if (modeDeCuisson == 1) {
             System.out.println("Quelle quantité en gramme souhaitez vous ?");
             poidsDeLaViande = console.nextInt();
        
-            tempsDeCuisson = poidsDeLaViande * 2.25;
-            
-            
+            tempsDeCuisson = poidsDeLaViande * 2.25;        
         }
-        if (modeDeCuisson == "point") {
+        if (modeDeCuisson == 2) {
             System.out.println("Quelle quantité en gramme souhaitez vous ?");
             poidsDeLaViande = console.nextInt();
        
             tempsDeCuisson = poidsDeLaViande * 3.75;
-            
         }
-        if (modeDeCuisson== "cuit") {
+        if (modeDeCuisson == 3) {
             System.out.println("Quelle quantité en gramme souhaitez vous ?");
             poidsDeLaViande = console.nextInt();
        
@@ -80,11 +77,37 @@ public class TempsDeCuisson {
 
     }
     
+    switch (typeDeViande) {
+        case 1:
+            messageViande = "beauf";
+            break;
     
-    System.out.println("Pour une viande de " + typeDeViande + " avec une cuisson " + modeDeCuisson + " et la quantité de " + poidsDeLaViande + " mg le temps de cuisson est de " + tempsDeCuisson );
+        case 2:
+            messageViande = "agneau";
+            break;
     
+        default:
+            break;
+    }
 
-
+    switch (modeDeCuisson) {
+        case 1:
+            messageCuisson = "blue";
+            break;
+    
+        case 2:
+            messageCuisson = "à point";
+            break;
+    
+        case 3:
+            messageCuisson = "bien cuit";
+            break;
+    
+        default:
+            break;
+    }
+    
+    System.out.println("Pour une viande de " + messageViande + " avec une cuisson " + messageCuisson + " et la quantité de " + poidsDeLaViande + " mg le temps de cuisson est de " + tempsDeCuisson  / 60 + " minutes" );
         
         console.close();
         
