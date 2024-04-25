@@ -1,4 +1,4 @@
-package LesBoucles;
+package LesBoucles.BoucleFor;
 
 import java.util.Scanner;
 
