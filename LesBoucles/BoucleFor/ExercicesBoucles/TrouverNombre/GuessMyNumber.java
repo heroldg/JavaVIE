@@ -8,7 +8,6 @@ public class GuessMyNumber {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         int nbOrdinateur = 0;
-        char toucheStart;
         char findItOrNot = '1';
         Random random = new Random();
         int nbTentative = 0;
@@ -16,7 +15,7 @@ public class GuessMyNumber {
         int min = 1;
         System.out.println("Choisissez un nombre compris entre 1 et 100, puis appuyez une une touche pour commencer:");
 
-        toucheStart =  console.next().charAt(0);
+        console.next().charAt(0);
 
         while (findItOrNot != '=') {
            
@@ -34,7 +33,7 @@ public class GuessMyNumber {
          
         }
 
-        System.out.printf("Super ! J'ai trouvé en %d tentatives.", nbTentative);
+        System.out.printf("Super ! c'est donc %d, j'ai trouvé en %d tentatives.", nbOrdinateur, nbTentative);
         console.close();
 
 
