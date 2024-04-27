@@ -9,8 +9,8 @@ Vous avez maintenant trois boucles à votre disposition pour écrire vos algorit
 
 ### est-il possible de ne réaliser aucune itération de cette boucle ?
 
-- Si oui, alors la boucle la plus adaptée est la boucle TantQue
-- Si non, alors il faut préferer une boucle Répéter
+- Si oui, alors la boucle la plus adaptée est la boucle TantQue (while)
+- Si non, alors il faut préferer une boucle Répéter (do...while)
 
 Ces régles constituent des bonnes pratiques. Il est tout à fait possibles de ne pas les respecter: par exemple, il est tout à fait possible de réaliser une boucle dont le nombre d'itérations est connu avant son début à laide d'une boucle TantQue ou d'une boucle Répéter ! Néanmoins, votre code sera moins facile à comprendre, donc plus difficile à maintenir et à optimiser.
 
