@@ -34,19 +34,17 @@ public class AsciiArtV2 {
 
             case 1:
             // RECTANGLE PLEIN
-            for (int i = 0; i < taille; i++) {
-                
-                for (int j = 0; j < taille - 1; j++) {
-                    if (j == 0 && j == taille - 1) {
-                        
-                    }
+                for (int i = 0; i < taille; i++) {
+
+                    for (int j = 0; j < taille; j++) {
                     System.out.print(caractere);
                     
                 }
-                System.out.println(caractere);
-            }
-            
-            break;
+                System.out.println();
+                
+                }
+                break;
+        
             
             case 2:
             // RECTANGLE CREUX
@@ -82,11 +80,13 @@ public class AsciiArtV2 {
             
             
             break;
+            
             case 3: 
             // TRIANGLE RECTANGLE
             
             // Première ligne
             if (taille > 0) {
+                System.out.println();
                 System.out.print(caractere);
             }
             // Pour toutes les lignes entre la premiere et la derniere
@@ -115,31 +115,86 @@ public class AsciiArtV2 {
             
             break;
             case 4: 
-            // Croix de Saint-André
-           
-            for (int i = 0; i < taille ; i++) {
+          
+            // for (int i = 0; i < taille / 2  ; i++) {
 
+            //     System.out.println();
+
+            //     // Cela permet de rajouter un espace à chaque nouvelle ligne 
+            //     do {
+            //         for (int j = 0; j < i; j++) {
+            //             System.out.print(" ");
+            //         }
+            //     } while (i > taille / 2) ;
+                
+            //     System.out.print(caractere);
+            //     // Cela permet de rajouter un espace à chaque nouvelle ligne 
+            //     do {
+            //         for (int j = taille / 2; j > i; j--) {
+            //             System.out.print(" ");
+            //             System.out.print(" ");
+            //         }
+            //     } while (i > taille / 2);
+            //     System.out.print(caractere);
+                    
+            // }
+            
+            for (int i = 0; i < taille / 2  ; i++) {
+
+                System.out.println();
+
+                // Cela permet de rajouter un espace à chaque nouvelle ligne 
+                do {
+                    for (int j = taille / 2; j > i; j--) {
+                        System.out.print(" ");
+                    }
+                    System.out.print(caractere);
+                } while (i > taille / 2);
+                // Cela permet de rajouter un espace à chaque nouvelle ligne 
+                do {
+                    for (int j = 0; j < i; j++) {
+                         
+                            System.out.print(" ");
+                            System.out.print(" ");
+                        
+                            
+                    }
+                } while (i > taille / 2) ;
+                
+                System.out.print(caractere);
+                    
+            }
+            System.out.println();
+            
+            
+            break;
+            case 5: 
+            // LOSANGE
+            for (int i = 0; i < taille / 2  ; i++) {
+
+                System.out.println();
+
+                // Cela permet de rajouter un espace à chaque nouvelle ligne 
+                do {
+                    for (int j = taille / 2; j > i; j--) {
+                        System.out.print(" ");
+                    }
+                    System.out.print(caractere);
+                } while (i == taille / 2);
                 
                 // Cela permet de rajouter un espace à chaque nouvelle ligne 
                 do {
                     for (int j = 0; j < i; j++) {
                         System.out.print(" ");
                     }
-                } while (i == taille);
-                
-                System.out.print(caractere);
-                
-                System.out.println();
+                    
+                    System.out.print(caractere);
+                } while (i == taille / 2) ;
                 
             }
+            System.out.println();
             
-           
-
-            
-            break;
-            case 5: 
-            // LOSANGE
-            
+          
             break;
             case 6: 
             // DAMIER
