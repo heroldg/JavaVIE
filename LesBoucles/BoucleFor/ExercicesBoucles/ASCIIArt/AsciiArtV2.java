@@ -121,7 +121,7 @@ public class AsciiArtV2 {
                     
                     // En haut à gauche
                     for (int j = 0; j < i; j++) {
-                        System.out.print("");
+                        System.out.print(" ");
                     }
                     System.out.print(caractere);
                     System.out.print(" ");
@@ -174,69 +174,76 @@ public class AsciiArtV2 {
             break;
             case 5: 
             // LOSANGE
-            for (int i = 0; i < taille / 2  ; i++) {
 
-
-                // En bas à gauche
-                for (int j = 1; j < (taille /2) - i; j++) {
-                    System.out.print(" ");
-                }
-                System.out.print(caractere);
-                System.out.print(" ");
-
-                
-               
-                // En bas à droite
-                for (int h = 0; h < i; h++) {
-                    
-                    System.out.print(" ");
-                    System.out.print(" ");
-                }
-                
-                System.out.println(caractere);
-                
-            }
-            System.out.println();
-            
-          
+            // Le caractère au milieu
             for (int i = 0; i < taille / 2; i++) {
+                System.out.print( " ");
+        }
+        System.out.println(caractere);
+        
+           // En bas 
+           for (int i = 0; i < taille / 2  ; i++) {
 
-                    
-                // En haut à gauche
-                for (int j = 0; j < i; j++) {
-                    System.out.print("");
-                }
-                System.out.print(caractere);
+
+            // En bas à gauche
+            for (int j = 1; j < (taille /2) - i; j++) {
                 System.out.print(" ");
+            }
+            System.out.print(caractere);
+            System.out.print(" ");
 
-                // En haut à droite
-                for (int j = 1; j <  (taille / 2) - i; j++) {
-                    
-                    System.out.print(" ");
-                    System.out.print(" ");
-                }
+            
+           
+            // En bas à droite
+            for (int h = 0; h < i; h++) {
                 
-                System.out.println(caractere);
-
-
+                System.out.print(" ");
+                System.out.print(" ");
+            }
+            
+            System.out.println(caractere);
+            
         }
 
+        for (int i = 1; i < taille / 2; i++) {
+
+                    
+            // En haut à gauche
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+            System.out.print(caractere);
+            System.out.print(" ");
+
+            // En haut à droite
+            for (int j = 1; j <  (taille / 2) - i; j++) {
+                
+                System.out.print(" ");
+                System.out.print(" ");
+            }
+            
+            System.out.println(caractere);
+
+
+    }
+    // Le caractère au milieu
+    for (int i = 0; i < taille / 2; i++) {
+        System.out.print( " ");
+}
+System.out.println(caractere);
+
+
+        
+            
             break;
             case 6: 
             // DAMIER
             for (int i = 0; i < taille; i++) {
                 
-                for (int j = 0; j < taille - 1; j++) {
-                    if (j == 0 && j == taille - 1) {
-                        
-                    }
-                    System.out.print(caractere);
-                    System.out.print(" ");
+                for (int j = 0; j < taille; j++) {
                     
                 }
-                System.out.println(caractere);
             }
-            
             
             break;
             case 7:
