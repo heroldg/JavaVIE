@@ -115,54 +115,58 @@ public class AsciiArtV2 {
             
             break;
             case 4: 
-          
-            // for (int i = 0; i < taille / 2  ; i++) {
+            // En haut 
+             for (int i = 0; i < taille / 2; i++) {
 
-            //     System.out.println();
-
-            //     // Cela permet de rajouter un espace à chaque nouvelle ligne 
-            //     do {
-            //         for (int j = 0; j < i; j++) {
-            //             System.out.print(" ");
-            //         }
-            //     } while (i > taille / 2) ;
-                
-            //     System.out.print(caractere);
-            //     // Cela permet de rajouter un espace à chaque nouvelle ligne 
-            //     do {
-            //         for (int j = taille / 2; j > i; j--) {
-            //             System.out.print(" ");
-            //             System.out.print(" ");
-            //         }
-            //     } while (i > taille / 2);
-            //     System.out.print(caractere);
                     
-            // }
-            
-            for (int i = 0; i < taille / 2  ; i++) {
-
-                System.out.println();
-
-                // Cela permet de rajouter un espace à chaque nouvelle ligne 
-                do {
-                    for (int j = taille / 2; j > i; j--) {
-                        System.out.print(" ");
+                    // En haut à gauche
+                    for (int j = 0; j < i; j++) {
+                        System.out.print("");
                     }
                     System.out.print(caractere);
-                } while (i > taille / 2);
-                // Cela permet de rajouter un espace à chaque nouvelle ligne 
-                do {
-                    for (int j = 0; j < i; j++) {
-                         
-                            System.out.print(" ");
-                            System.out.print(" ");
+                    System.out.print(" ");
+
+                    // En haut à droite
+                    for (int j = 1; j <  (taille / 2) - i; j++) {
                         
-                            
+                        System.out.print(" ");
+                        System.out.print(" ");
                     }
-                } while (i > taille / 2) ;
-                
-                System.out.print(caractere);
                     
+                    System.out.println(caractere);
+
+
+            }
+
+            // Le caractère au milieu
+            for (int i = 0; i < taille / 2; i++) {
+                    System.out.print( " ");
+            }
+            System.out.println(caractere);
+            
+
+            // En bas 
+            for (int i = 0; i < taille / 2  ; i++) {
+
+
+                // En bas à gauche
+                for (int j = 1; j < (taille /2) - i; j++) {
+                    System.out.print(" ");
+                }
+                System.out.print(caractere);
+                System.out.print(" ");
+
+                
+               
+                // En bas à droite
+                for (int h = 0; h < i; h++) {
+                    
+                    System.out.print(" ");
+                    System.out.print(" ");
+                }
+                
+                System.out.println(caractere);
+                
             }
             System.out.println();
             
@@ -172,29 +176,51 @@ public class AsciiArtV2 {
             // LOSANGE
             for (int i = 0; i < taille / 2  ; i++) {
 
-                System.out.println();
 
-                // Cela permet de rajouter un espace à chaque nouvelle ligne 
-                do {
-                    for (int j = taille / 2; j > i; j--) {
-                        System.out.print(" ");
-                    }
-                    System.out.print(caractere);
-                } while (i == taille / 2);
+                // En bas à gauche
+                for (int j = 1; j < (taille /2) - i; j++) {
+                    System.out.print(" ");
+                }
+                System.out.print(caractere);
+                System.out.print(" ");
+
                 
-                // Cela permet de rajouter un espace à chaque nouvelle ligne 
-                do {
-                    for (int j = 0; j < i; j++) {
-                        System.out.print(" ");
-                    }
+               
+                // En bas à droite
+                for (int h = 0; h < i; h++) {
                     
-                    System.out.print(caractere);
-                } while (i == taille / 2) ;
+                    System.out.print(" ");
+                    System.out.print(" ");
+                }
+                
+                System.out.println(caractere);
                 
             }
             System.out.println();
             
           
+            for (int i = 0; i < taille / 2; i++) {
+
+                    
+                // En haut à gauche
+                for (int j = 0; j < i; j++) {
+                    System.out.print("");
+                }
+                System.out.print(caractere);
+                System.out.print(" ");
+
+                // En haut à droite
+                for (int j = 1; j <  (taille / 2) - i; j++) {
+                    
+                    System.out.print(" ");
+                    System.out.print(" ");
+                }
+                
+                System.out.println(caractere);
+
+
+        }
+
             break;
             case 6: 
             // DAMIER
@@ -218,13 +244,37 @@ public class AsciiArtV2 {
             System.out.println("Au revoir ! ");
             console.close();
             break;
-
+            
             default:
             break;
         }
     }
-        
-        
-    }
+    
+    
+}
 
 }
+
+
+  // for (int i = 0; i < taille / 2  ; i++) {
+
+  //     System.out.println();
+
+  //     // Cela permet de rajouter un espace à chaque nouvelle ligne 
+  //     do {
+  //         for (int j = 0; j < i; j++) {
+  //             System.out.print(" ");
+  //         }
+  //     } while (i > taille / 2) ;
+      
+  //     System.out.print(caractere);
+  //     // Cela permet de rajouter un espace à chaque nouvelle ligne 
+  //     do {
+  //         for (int j = taille / 2; j > i; j--) {
+  //             System.out.print(" ");
+  //             System.out.print(" ");
+  //         }
+  //     } while (i > taille / 2);
+  //     System.out.print(caractere);
+          
+  // }

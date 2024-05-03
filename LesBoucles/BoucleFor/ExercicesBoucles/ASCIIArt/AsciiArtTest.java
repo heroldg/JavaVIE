@@ -88,17 +88,12 @@ public class AsciiArtTest {
 
             // Ligne du milieu
             for (int i = 0; i < taille - 2; i++) {
-                // System.out.println("&");
                 System.out.print(caractere);
 
-                do {
                     for (int j = 0; j < i; j++) {
                         System.out.print(" ");
                     }
-                } while (i == taille - 2);
-
                 System.out.println(caractere);
-
             }
 
             // Dernière ligne
@@ -112,28 +107,33 @@ public class AsciiArtTest {
             break;
             // Croix Saint-Anne
             case 4: 
-            for (int i = 0; i < taille; i++) {
-                do {
-                    for (int j = 0; j < i; j++) {
-                        System.out.print(" ");
-                    }
-                } while (i == taille);
+           // En haut 
+           for (int i = 0; i < taille / 2; i++) {
 
-                System.out.print(caractere);
-                
-                do {
-                    for (int j = 0; j < i; j++) {
-                        System.out.print(" ");
-                    }
-                } while (i == (taille - i));
-                
-                System.out.println(caractere);
-
-
+                    
+            // En haut à gauche
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
             }
+            System.out.print(caractere);
+            System.out.print(" ");
+
+            // En haut à droite
+            for (int j = 1; j <  (taille / 2) - i; j++) {
+                
+                System.out.print(" ");
+                System.out.print(" ");
+            }
+            
+            System.out.println(caractere);
+
+
+    }
             break;
             case 5:
+            console.close();
             break;
+            
         
             default:
                 break;
