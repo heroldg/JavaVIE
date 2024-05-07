@@ -239,10 +239,20 @@ System.out.println(caractere);
             case 6: 
             // DAMIER
             for (int i = 0; i < taille; i++) {
-                
+
                 for (int j = 0; j < taille; j++) {
+                    if (i % 2 != 0) {
+                        System.out.print(" " + caractere);
+                    } 
                     
+                    if (i % 2 == 0) {
+                        System.out.print( caractere +  " ");
+                        
+                    }
+                    
+                 
                 }
+                System.out.println();
             }
             
             break;
