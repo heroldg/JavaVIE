@@ -1,19 +1,19 @@
-package Chap4LesTableaux.Cours;
+package Chap4LesTableaux.CoursTableau;
 
 public class ExempleTableaux {
     public static void main(String[] args) {
         // déclaration d'un tableau de dix entiers
         int[] tabEntiers = new int[10];
+        tabEntiers[0] = 1;
 
         // déclaration d'un tableau de trois nombre réels
         double[] tabReels = new double[3];
-
         // déclaration d'un tableau de trente caractères
         char[] tabCaractere = new char[30];
-
+        tabCaractere[0] = 'z';
         // déclaration d'un tableau de six chaînes de caractères
         String[] tabStrings = new String[6];
-
+        tabStrings[0] = "Phrase ..";
         // Il est possible de crée un tableau initialisé avec des valeurs directement
         int[] tab = {17, 51, 43, 22, 7, 91, 17, 34,4 , 12};
 
@@ -34,6 +34,9 @@ public class ExempleTableaux {
         }
 
         // Boucle forEach: Attention ! cette boucle recopie successiment la valeur de chaque case dans la variable de la boucle forEach. une modificatuion de la valeur de cette variable n'a donc aucun effect sur les valeurs contenues dans le tableau. 
+
+        // Quand utiliser la boucle ForEach: 
+        // 1/ Parcourir l'ensemble d'un tableau 2/ aucune modification n'est souhaité 3/ le numéro d'incide (index) de la case n'est pas nécessaire
         for (int i : tabParcourue) {
             System.out.println(i);
         }
