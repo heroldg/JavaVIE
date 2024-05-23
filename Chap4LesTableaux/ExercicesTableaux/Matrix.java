@@ -10,6 +10,7 @@ public class Matrix {
             System.out.print(i + 1);
             System.out.println();
             for (int j = 0; j < matrixChar.length; j++) {
+                // Permet de prendre des lettres aléatoire en 'a' et 
                 char aleatChar = (char)(random.nextInt(26)+ 97);
                 System.out.print(aleatChar);
             }
