@@ -73,6 +73,7 @@ public class MicroBatailleNavale {
         System.out.println("Boum ! Touché coulé");
         System.out.println("Bravo, Vous avez gagné");
 
+        console.close();
     }
     
     
