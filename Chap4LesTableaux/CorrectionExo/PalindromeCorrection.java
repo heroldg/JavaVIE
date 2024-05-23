@@ -1,4 +1,4 @@
-package Chap4LesTableaux.CoursTableau.CorrectionExo;
+package Chap4LesTableaux.CorrectionExo;
 
 import java.util.Scanner;
 
