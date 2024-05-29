@@ -47,9 +47,9 @@ public class LePlusGrand {
         public static int PlusGrandeVal(double val1, double val2) {
             int biggestVal;
             
-            if (val1 == val2) {
+            if (val1 < val2) {
                 biggestVal = 0;
-            } if (val1 > val2) {
+            } else if(val1 > val2) {
                 biggestVal = 1;
                 
             } else {
