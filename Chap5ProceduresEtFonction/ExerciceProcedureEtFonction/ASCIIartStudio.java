@@ -6,6 +6,7 @@ public class ASCIIartStudio {
     public static int LIGNES = 10;
     public static int COLONNES = 40;
     public static char[][] tabAscii = new char[LIGNES][COLONNES];
+    public static char caractereRect = ' ';
 
 
     public static void main(String[] args) {
@@ -13,29 +14,39 @@ public class ASCIIartStudio {
         Scanner console = new Scanner(System.in);
         initialiserTabAscii(tabAscii);
         afficherTabAscii(tabAscii);
-        presentation(console);
-        choix = console.nextInt();
-        switch (choix) {
-            case 1:
-            console.nextLine();
-            dessinerUnCaractere(tabAscii, console);
+        
+        
+        while (choix != 4) {
+
+            presentation(console);
+            choix = console.nextInt();
+            
+            switch (choix) {
+                case 1:
+                console.nextLine();
+                dessinerUnCaractere(tabAscii, console);
                 
                 break;
-        
-            case 2:
-            console.nextLine();
-            int caractereRectangle = dessinerUnRectangle(tabAscii, console);
+                
+                case 2:
+                console.nextLine();
+                caractereRect  = dessinerUnRectangle(tabAscii, console);
                 
                 break;
-        
-            case 3:
-            console.nextLine();
-            changerDeCaractere(tabAscii, LIGNES, COLONNES, console);
+                
+                case 3:
+                console.nextLine();
+                changerDeCaractere(tabAscii, caractereRect, console);
                 
                 break;
-        
-            default:
+                
+                case 4:
+                System.out.println("Fin , aurevoir !");
                 break;
+                
+                default:
+                break;
+            }
         }
 
     
@@ -93,6 +104,7 @@ public class ASCIIartStudio {
         System.out.println("1 - Dessiner un caractère");
         System.out.println("2 - Dessiner un rectangle avec un ensemble de caractères");
         System.out.println("3 - Changer le caractère ");
+        System.out.println("4 - QUITTER");
       
     }
 
@@ -153,29 +165,37 @@ public class ASCIIartStudio {
         
     }
 
-    public static void changerDeCaractere(char[][] TabAscii, int l, int c, Scanner console) {
-        int x , y, ancienCaractere, nouveauCaractere;
-        System.out.println("Selectionner un caractère à dessiner ");
-        char caractere = console.nextLine().charAt(0);
-        System.out.println("Selectionner la ligne du caractère " + caractere + " :");
-        x = console.nextInt() - 1;
-        System.out.println("Selectionner la colonne du caractère " + caractere + " :");
-        y = console.nextInt() - 1;
-        if (x >= 0 && x < LIGNES && y >= 0 && y < COLONNES) {
-            ancienCaractere = tabAscii[x][y];
+    public static void changerDeCaractere(char[][] TabAscii, char ancienCaractere, Scanner console) {
+        int x , y;
 
+        System.out.println("Selectionner un caractère à dessiner ");
+        char nouveauCaractere = console.nextLine().charAt(0);
+        System.out.println("Selectionner la ligne du caractère " + nouveauCaractere + " :");
+        x = console.nextInt() - 1;
+        System.out.println("Selectionner la colonne du caractère " + nouveauCaractere + " :");
+        y = console.nextInt() - 1;
+        if (x >= 0 && x < LIGNES && y >= 0 && y < COLONNES) {  
+            if (tabAscii[x][y] == ancienCaractere) {
+                
+                if (ancienCaractere != nouveauCaractere) {
+                changernouveauCaractereRecursive(x, y, TabAscii, ancienCaractere, nouveauCaractere);
+            }
+        }
             
         }
+
+        afficherTabAscii(tabAscii);
+
     }
 
-    public static void changerCaractereRecursive(int x, int y, char[][] TabAscii, int l, int c, char ancienCaractere, char nouveauCaractere ) {
+    public static void changernouveauCaractereRecursive(int x, int y, char[][] TabAscii, char ancienCaractere, char nouveauCaractere ) {
         if (x >= 0 && x < LIGNES && y > 0 && y < COLONNES) {
-            if (tabAscii[y][x] == ancienCaractere) {
-                tabAscii[y][x] = nouveauCaractere;
-                changerCaractereRecursive(x - 1, y, TabAscii, l, c, ancienCaractere, nouveauCaractere);
-                changerCaractereRecursive(x + 1, y, TabAscii, l, c, ancienCaractere, nouveauCaractere);
-                changerCaractereRecursive(x, y - 1, TabAscii, l, c, ancienCaractere, nouveauCaractere);
-                changerCaractereRecursive(x, y + 1, TabAscii, l, c, ancienCaractere, nouveauCaractere);
+            if (tabAscii[x][y] == ancienCaractere) {
+                tabAscii[x][y] = nouveauCaractere;
+                changernouveauCaractereRecursive(x - 1, y, TabAscii, ancienCaractere, nouveauCaractere);
+                changernouveauCaractereRecursive(x + 1, y, TabAscii, ancienCaractere, nouveauCaractere);
+                changernouveauCaractereRecursive(x, y - 1, TabAscii, ancienCaractere, nouveauCaractere);
+                changernouveauCaractereRecursive(x, y + 1, TabAscii, ancienCaractere, nouveauCaractere);
 
             }
         }

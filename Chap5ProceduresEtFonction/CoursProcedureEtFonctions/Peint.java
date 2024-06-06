@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Peint {
     public static void main(String[] args) {
-        
+
         
         peindre(null, 0, 0);
         
     }
         public static void peindre(int[][] image, int l, int h) {
             Scanner console = new Scanner(System.in);
-            // Saisir les coordonnées d'un pont et une nouvelle couleur puis remplace l'ancienne couleur par une nouvelle pour le point ainsi que pour les cases adjacentes
+            // Saisir les coordonnées d'un point et une nouvelle couleur puis remplace l'ancienne couleur par une nouvelle pour le point ainsi que pour les cases adjacentes
             int x, y , nouvelleCouleur, ancienneCouleur;
             System.out.println("Coordonnée x");
             x = console.nextInt();
