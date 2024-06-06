@@ -44,6 +44,7 @@ public class MicroBatailleNavale {
         do {
             System.out.println("Veuillez saisir un entier entre " + min + " et " + max + ":");
             valeur = scanner.nextInt();
+            // scanner.close();
         } while (valeur < min || valeur > max);
         return valeur;
     }

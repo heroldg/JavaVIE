@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Peint {
     public static void main(String[] args) {
         
+        
         peindre(null, 0, 0);
         
     }
@@ -22,7 +23,7 @@ public class Peint {
             if (x >= 0 && x < 1 && y >= 0 && y < h) {
                 ancienneCouleur = image[y][x];
                 if (ancienneCouleur != nouvelleCouleur) {
-                    // Mettre peindreRecursive() ici
+                    peindreRecursive(x, y, image, h, l, ancienneCouleur, nouvelleCouleur);
                 }
             }
 
@@ -49,5 +50,5 @@ public class Peint {
 
     // Dans cet exemple, l'image est supposé être en nuance de gris. Elle est modélisée par un tableau à deux dimensions où, dans chaque case, est stockée la valeur en niveau de gris du pixel : zero correspond à du noir et 255 correspond à du blanc, et les valeur intermédiaires forment un dégradé de gris entre ces deux couleurs. Le principe reste le même pour une image en couleurs, mais cela ajoute une dimension supplémentaire au tableau.
 
-    // La procédure peindre() prend en paramètres l'image ainsi que sa largeur et sa hauteur. Elle fait saisir à l'utilisateur l'emplacement où appliquer le pot de peinture et la couleur à appliquer. Après avoir vérifié que les coordonnées saisies soient correctes, la couleurs du pixel à l'emplacment indiqué est comparée à la couleur à appliquer: si c'est la même, il n'y a rien à faire ( en plus , cela créerait des appels infinis de la procédures peindreRecirsive()), sinon,  la procédure , les coordonnées du point sont testées pour savoir si elles sont bien à l'intérieur de l'image. Cette précaution est superflue pour ce premier appel, mais elle sera nécessairement pour les autres appels. Ensuite , seuls les pixels de la même couleur que celui dont les coordonnées ont été choisies doivent être repeints. À nouveau, comme il s'agit de ce pixel précisément, c'est forcément le cas, mais pour les autres appels, ce ne sera pas nécessairement le cas. Ensuite la couleur du pixel est changée avec la nouvelle couleur. Puis la procédure peindreRecursive() est appelée récursivement sur le pixel situé à gauxhe de celui-ci,  puis sur le pixel à droite, sur celui au-dessus et enfin en dessous. La nouvelle couleur de l'image ne sont pas dépassées et que la couleur du voisin est bien la même que celle du poixel auqurel a été appliqué le pot de peinture.
+    // La procédure peindre() prend en paramètres l'image ainsi que sa largeur et sa hauteur. Elle fait saisir à l'utilisateur l'emplacement où appliquer le pot de peinture et la couleur à appliquer. Après avoir vérifié que les coordonnées saisies soient correctes, la couleurs du pixel à l'emplacment indiqué est comparée à la couleur à appliquer: si c'est la même, il n'y a rien à faire ( en plus , cela créerait des appels infinis de la procédures peindreRecirsive()), sinon,  la procédure , les coordonnées du point sont testées pour savoir si elles sont bien à l'intérieur de l'image. Cette précaution est superflue pour ce premier appel, mais elle sera nécessairement pour les autres appels. Ensuite , seuls les pixels de la même couleur que celui dont les coordonnées ont été choisies doivent être repeints. À nouveau, comme il s'agit de ce pixel précisément, c'est forcément le cas, mais pour les autres appels, ce ne sera pas nécessairement le cas. Ensuite la couleur du pixel est changée avec la nouvelle couleur. Puis la procédure peindreRecursive() est appelée récursivement sur le pixel situé à gauche de celui-ci,  puis sur le pixel à droite, sur celui au-dessus et enfin en dessous. La nouvelle couleur de l'image ne sont pas dépassées et que la couleur du voisin est bien la même que celle du pixel auquel a été appliqué le pot de peinture.
      
