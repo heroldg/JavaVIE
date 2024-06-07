@@ -38,22 +38,20 @@ public class MicroBatailleNavale {
     }
 
     // Demander à l'utilisateur de saisir un entier entre min et max (inclus)
-    public static int saisirEntierEntreBornes(int min, int max) {
-        Scanner scanner = new Scanner(System.in);
+    public static int saisirEntierEntreBornes(Scanner scanner, int min, int max) {
         int valeur;
         do {
             System.out.println("Veuillez saisir un entier entre " + min + " et " + max + ":");
             valeur = scanner.nextInt();
-            // scanner.close();
         } while (valeur < min || valeur > max);
         return valeur;
     }
 
     // Permettre au joueur de choisir ses coordonnées de tir
-    public static boolean tirer() {
+    public static boolean tirer(Scanner scanner) {
         System.out.println("Coordonnées de tir:");
-        int x = saisirEntierEntreBornes(0, TAILLE - 1);
-        int y = saisirEntierEntreBornes(0, TAILLE - 1);
+        int x = saisirEntierEntreBornes(scanner, 0, TAILLE - 1);
+        int y = saisirEntierEntreBornes(scanner, 0, TAILLE - 1);
 
         // Vérifier si le bateau est touché
         if (x == bateauX && y == bateauY) {
@@ -68,16 +66,21 @@ public class MicroBatailleNavale {
     }
 
     public static void main(String[] args) {
-        initialiserPlateau();
-        placerBateau();
-        afficherPlateau();
-
-        boolean touche = false;
-        while (!touche) {
-            touche = tirer();
+        Scanner scanner = new Scanner(System.in);
+        try {
+            initialiserPlateau();
+            placerBateau();
             afficherPlateau();
+
+            boolean touche = false;
+            while (!touche) {
+                touche = tirer(scanner);
+                afficherPlateau();
+            }
+
+            System.out.println("Vous avez coulé le bateau!");
+        } finally {
+            scanner.close();
         }
-        
-        System.out.println("Vous avez coulé le bateau!");
     }
 }
