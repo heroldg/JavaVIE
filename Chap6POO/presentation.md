@@ -62,7 +62,7 @@ Remarquez que le type de retour d'une méthode ne fait pas partie des élémenrs
 
 ## 6. La création d'une instance
 
-### 7.1 La déclaration et l'instanciation d'une variable de type classe
+### 6.1 La déclaration et l'instanciation d'une variable de type classe
 
 nous savons maintenant créer des classes, il est grand temps d'apprendre à y faire appel ! Ce paragraphe a donc pour objectif d'expliquer comment créer une instance et comment faire appel à une méhtodes.
 
@@ -70,11 +70,11 @@ nous savons maintenant créer des classes, il est grand temps d'apprendre à y f
 
 Syntaxe :
 
-                Variable nom_instance: Nom_de_la_classe
+        Variable nom_instance: Nom_de_la_classe
 
 Exemple :
 
-                Variable croiseur : Bateau
+        Variable croiseur : Bateau
 
 Tout comme pour les tableaux dont la taille n'a pas été indiqué entre les crochets, cette déclaration n'a crée qu'une variable capable de contenir une instance de **Bateau** dans cette variable, il faut la créer. Cette opération s'appelle **l'instanciation**
 
@@ -84,8 +84,68 @@ Exemple :
 
 Il est également possible de créer simultanément l'instance et la variable permettant de la stocker en écrivant:
 
-                Variable nom_instance : Nom_de_la_classe <- nouveau Nom_de_la_classe()
+        Variable nom_instance : Nom_de_la_classe <- nouveau Nom_de_la_classe()
 
 une fois linstance crée il est possible de faire appel à ses méthodes d'instance en utilisant la syntaxe suivante:
 
-                nom_instance.comDeLaMethodeDInstance(paramètres)
+        nom_instance.comDeLaMethodeDInstance(paramètres)
+
+### 6.2 Les tableaux d'instances
+
+en algorithmique comme en Javan il est également possible de créer des tableaux dont le type des casses est une classe. La syntaxe de déclaration de ce tableau est la même que précedemmment : il suffit d'indiquee comme type le nom de la classe.
+
+## 7. Les constructeurs
+
+Lors de la création d'une instance (exp: croiseur <- nouveau Bateau()), différentes opérations sont réalisées. tout d'abord , il est nécessaire de reserver l'espace mémoire nécessaire pour stocker les information de l'instance (cet aspect-là est expliqué dans le chapitre La mémoire). Ensuite , les attributs d'instance sont initialisés grâce au constructeur. nfin , la variable devant contenir l'instance est valorisée.
+
+### 7.1 Le constructeur par défaut
+
+En algorithmique comme en Java, dans une classe, en absence de la déclaration d'au moins un constructeur, il existe un constructeur par défaut. Ce constructeur est alors implicitement ajouté à la classe. Le constructeur par défaut ne prend pas d'argument. Il fait appel au constructeur sans argument de la classe parent ( cela est abordé dans la section L'héritage du chapitre prochain) et initialise les attributs à leurs valeurs par défaut (faux pour des booléens, zéro pour des nombres, le caractère nul pour les caractères et l'absence de valeur (null) pour les instance).
+
+Dans l'exemple de la bataille navale, aucun constructeur n'a été explicitement déclaré. Un constructeur par défaut y a donc impliciment été ajouté et c'est celui-ci était appelé lors de la création de l'instance.
+
+### 7.2 Les constructeurs
+
+Il est possible de déclarer un ou des constructeurs afin d'initialiser les attriibuts d'instance avec des valeur plus daptées ou des valeurs choisies. Pour définr un constructeur, il faut utiliser la syntaxe suivante au sein de la section _Méthodes_ de la classe:
+
+        Constructeur(liste_des_paramètres)
+        Début
+                #instructions
+        Fin
+
+Lorsque le constructeur prend en pramètres deux valeurs: Il utilise ces paramètres pour initialiser deux attributs. Une fois qu'au moins constructeur à été défini, il n'existe plus de constructeur par défaut.
+
+### 7.3 La surcharge de constructeurs
+
+En algorithmique comme en Java , il est possible de définir plusieurs constructeurs au sein d'une classe. À l'instar des méthodes, c'est ce qui se nomme la surcharge de constructeurs. Tout comme avec les méthodes, il ne faut pas qu'il y ait d'ambiguîté sur le constructeur à appeler. Une différence toutefois par rapport aux méthodes est qu'il n'est pas possible d'utiliser le nom pour différencier deux constructeurs.
+
+Voici les éléments permettant de distinguer deux constructeurs:
+
+        - la classe dans laquelle le constructeur est déclaré
+        - le nombre d'arguments
+        - le type d'argument
+
+## 8. Les attrubuts de classe
+
+Il existe deux catégories d'attributs:
+
+- Les attributs d'instance
+- Les attributs de classe
+
+### 8.1 Les attributs d'instance
+
+Les attributs d'instance représente des elements qui sont propres à chaque instance. Dans l'exemple de la bataille navale , chaque instance de bateau possède son propre type, sa propre longueur, son propre positionnement (latitude, longitude et orientation verticale ou horizontale) et son propre compteur de tirs l'ayant endommagé. Pour tous ces attributs d'instance, une modification de valeur n'affecte qu'une seule instance. Par exemple, si un tir atteint l'un des bateaux d'un joueur, seule la valeu de l'attribut **partiesTouchees** de ce bateau est modifiées. Les valeurs de cet attributs pour toutes les autres instances restent inchangées.
+
+### 8.2 Les attibuts de classe
+
+Les attributs de classe, représente les éléments qui sont communs ou collectifs à la classe.
+
+Les éléments communs correspondent à une valeur qui serait la même pour l'ensemble des instances de cette classe. Le caractères pour afficher une partie de bateau indemne et celui pour afficher une partie de bateau atteinte par un tir sont des élémenrts communs à toutes les instances. Ces valeurs sont partagées entre toutes les instances: si le caractère **x** est utilisé pour indiquer qu'un bateau est touché, c'est ce même caractère qui est utilisé pour afficher tous les tirs ayant atteint n'importe quel bateau..
+
+Les éléments collectifs correspondent, pour leur part ,aux élémenents dont la valeur sdépend de l'ensemble des instances. Par exemple, la longueur maximale de l'ensemble des bateaux ou le nombre de bateaux coulés osnt des éléments collectifs . Dans cette catégories , l'ajout d'une instance ou la modification de l'une d'entre elle peut affecter la valeur collective; si l'un des bateaux est coulé, la valeur partagée comptant le nombre de bateaux coulées est incrémentée.
+
+## Les méthodes de classe
+
+Les méthodes de classe, à l'instar des attributs de classe, sont des méthodes dont l'éxecution ne dépend pas d'une instance particulière. Ces méthodes travaillent donc sur la classe et non sur les instances de celle-ci.
+
+Par exemple, une méthode de classe pourrait afficher les régles de positionnement d'un bateau sur la grille de la bataille navale. Cette méthode ne dépend pas d'un bateau plutôt sur la grille de la bataille navale. Cette méthode de classe. Les méthodes dee classe peuvent accéder aux attributs de classe, par contre elles ne peuvent pas accèder aux attributs d'instance puisque ces attributs dépendent d'une instance.

@@ -2,7 +2,7 @@ package Chap6POO.CoursPOO;
 
 public class Bateau {
     
-    // Une classe responsable de ses attributs. Ainsi, pour éviter que les valeurs des attributs puissent être modifiées par n'importe qui, le visibilité private y est placés pour ses attributs.
+    // Une classe responsable de ses attributs. Ainsi, pour éviter que les valeurs des attributs puissent être modifiées par n'importe qui, le visibilité private y est placés pour ses attributs. Ses attributs sont des attributs d'instance
     private String type;
     private int longueur;
     private int latitude;
@@ -10,11 +10,25 @@ public class Bateau {
     private boolean horizontal;
     private int partiesTouchees = 0;
 
+    // Cette attribut est un attribut de classe
+    private static char symboletouche = 'x';
+
     // Cela dit il n'est pas nécessaire de mettre les constantes en privée comme elle n'ont pas vocation à être changées.
     public static final int TOUCHE = 1;
     public static final int COULE = 2;
     
 
+    //constructeur 
+    public Bateau(String type, int longueur) {
+        this.type = type;
+        this.longueur = longueur;
+    }
+
+    // Il est impératif que cet appel soit la première instruction du constructeur. Il faut indiquer le mot-clé this suivi entre parenthèses des valeurs attendues par le constructeur appelé.
+    public Bateau(String type, int longueur, int latitude, int longitude, boolean horizontal) {
+        this(type, longueur); //Ceci fait référence au constructeur :  public Bateau(String type, int longueur) 
+        this.positionner(latitude, longitude, horizontal);
+    }
 
     public String getType() {
         return this.type;
@@ -26,6 +40,24 @@ public class Bateau {
         } else {
             this.type = type;
         }
+    }
+
+
+    // méthode de classe afficherReglesPositionnement(): Cette méthode peut même être appelée alors qu'aucune instance de la classe bateau n'a été créée. Il est ainsi possible d'afficher les régles de possionnement des bateaux à un joueur avant même d'avoir commencé une partie et donc crée des instances de bateaux. La capacité des méthodes de classe à être appelées sans avoir d'instance est une caractéristique intéressante. Il est par exemple possible de créer une méthode de classe capable de créer des instances de celle-ci. 
+    public static void afficherReglesPositionnement() {
+        System.out.println("Les bateaux doivent être possitionnés soit horizontalement , soit verticalement mais jamais en biais.");
+        System.out.println("Les bateaux ne peuvent pas se superposer. Il est néamoins possible qu'ils se touchent.  ");
+        System.out.println("Les bateaux doivent être positionnés intégralement dans la grille de jeu de la bataille navale");
+        System.out.println("Une fois positionnés, les bateaux ne peuvent être déplacés. ");
+    }
+
+    // les deux autres méthodes de classe sont les getter et le setter pour l'attribut de classe symboleTouche. Ces méthodes peuvent accéder à cet attribut , car c'est un attriibut de classe. Il aurait été impossible d'accéder à un attribut d'instance.
+    public static char getSymbole() {
+        return Bateau.symboletouche;
+    }
+
+    public static void setSymboleTouche(char symboletouche) {
+        Bateau.symboletouche = symboletouche;
     }
     
 

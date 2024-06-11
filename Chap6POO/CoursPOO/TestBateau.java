@@ -2,10 +2,8 @@ package Chap6POO.CoursPOO;
 
 public class TestBateau {
   public static void main(String[] args) {
-    Bateau croiseur = new Bateau();
+    Bateau croiseur = new Bateau("Croiseur", 4);
     int resultatTir;
-
-    croiseur.initialiser("Croiseur", 4);
 
     // positionner dans le sens vertical avec pour première case (3; 7)
     croiseur.positionner(3, 7, false);
