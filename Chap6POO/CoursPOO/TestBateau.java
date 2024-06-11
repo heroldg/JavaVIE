@@ -2,6 +2,16 @@ package Chap6POO.CoursPOO;
 
 public class TestBateau {
   public static void main(String[] args) {
+
+    System.out.println("Voici les règles de positionnement des bateaux à la bataille navale");
+    // Appel à une méthode de classe
+    Bateau.afficherReglesPositionnement();
+    // Initialisation grâce à un setters de méthode de classe
+    Bateau.setSymboleTouche('#');
+    System.out.println("Lorsqu'un bateau est touché, cela est indiqu par un " + Bateau.getSymbole() + " à l'emplacement du tir.");
+
+
+
     Bateau croiseur = new Bateau("Croiseur", 4);
     int resultatTir;
 

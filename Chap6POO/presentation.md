@@ -144,8 +144,19 @@ Les éléments communs correspondent à une valeur qui serait la même pour l'en
 
 Les éléments collectifs correspondent, pour leur part ,aux élémenents dont la valeur sdépend de l'ensemble des instances. Par exemple, la longueur maximale de l'ensemble des bateaux ou le nombre de bateaux coulés osnt des éléments collectifs . Dans cette catégories , l'ajout d'une instance ou la modification de l'une d'entre elle peut affecter la valeur collective; si l'un des bateaux est coulé, la valeur partagée comptant le nombre de bateaux coulées est incrémentée.
 
-## Les méthodes de classe
+## 9. Les méthodes de classe
 
 Les méthodes de classe, à l'instar des attributs de classe, sont des méthodes dont l'éxecution ne dépend pas d'une instance particulière. Ces méthodes travaillent donc sur la classe et non sur les instances de celle-ci.
 
 Par exemple, une méthode de classe pourrait afficher les régles de positionnement d'un bateau sur la grille de la bataille navale. Cette méthode ne dépend pas d'un bateau plutôt sur la grille de la bataille navale. Cette méthode de classe. Les méthodes dee classe peuvent accéder aux attributs de classe, par contre elles ne peuvent pas accèder aux attributs d'instance puisque ces attributs dépendent d'une instance.
+
+### 9.1 Récapitulatif des méthodes de classe par rapport aux méthodes d'instance
+
+voici un petit tableau répapitulatif indiquant les principales différences entre les méthodes d'instance et les méthodes de classe:
+
+|                                |                   Méthode d'instance                    |                          Methode de classe                          |
+| ------------------------------ | :-----------------------------------------------------: | :-----------------------------------------------------------------: |
+| Mot-clé en Java                |                        Ø(aucun)                         |                          oui : **static**                           |
+| Accès aux attributs d'instance |                           oui                           |                                 non                                 |
+| Appel depuis la classe en Java | this.nomMethodeInstance(): exemple: this.testerTir(3,2) | nomClasse.nomMethodeClasse() exemple: Bateau.setSymboletouche('\*') |
+| Appel hors la classe en Java   | nomMethodeInstance(): exemple: croiseur.testerTir(3,2)  | nomClasse.nomMethodeClasse() exemple: Bateau.setSymboletouche('\*') |
