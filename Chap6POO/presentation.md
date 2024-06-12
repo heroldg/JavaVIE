@@ -34,7 +34,7 @@ De manières similaire aux fonctions et procédures qui sont responsables des va
 
 Les méthodes d'instance sont les actions réalisables sur les instances. Elles correspondent aux procédures et fonctions qui manipulent les variables allant bien ensemble citées en introduction.
 
-Les méthodes d'instance peuvent accéder au attributs d'instance à la différence des méthodes statique. Les visibilités proposées pour une méthode sont les mêmes que celles présentées pour les attributs et les constantes. Une méthode d'instance peut accéder à un attribut d'instance. Pour cela, il faut utiliser le nom de l'attribut d'instance, éventuellement précedé de _this_ (cela n'est obligatoire que si un attribut porte le même nom qu'un paramètre ou qu'une variable, afin de lever l'ambiguÏté).
+Les méthodes d'instance peuvent accéder au attributs d'instance à la différence des méthodes statique. Les visibilités proposées pour une méthode sont les mêmes que celles présentées pour les attributs et les constantes. Une méthode d'instance peut accéder à un attribut d'instance. Pour cela, il faut utiliser le nom de l'attribut d'instance, éventuellement précedé de **this** (cela n'est obligatoire que si un attribut porte le même nom qu'un paramètre ou qu'une variable, afin de lever l'ambiguÏté).
 
 ## 4. Les méthodes Getters & Setters
 
@@ -160,3 +160,11 @@ voici un petit tableau répapitulatif indiquant les principales différences ent
 | Accès aux attributs d'instance |                           oui                           |                                 non                                 |
 | Appel depuis la classe en Java | this.nomMethodeInstance(): exemple: this.testerTir(3,2) | nomClasse.nomMethodeClasse() exemple: Bateau.setSymboletouche('\*') |
 | Appel hors la classe en Java   | nomMethodeInstance(): exemple: croiseur.testerTir(3,2)  | nomClasse.nomMethodeClasse() exemple: Bateau.setSymboletouche('\*') |
+
+## 11. Les instances : un type référence
+
+Les instances contiennent un ensemble de valeurs, tout comme les tableaux. Pour les mêmes raisons d'optimisation de l'utilisation des zones mémoire, les instances sont des types référence. L'utilisation des zones mémoire, les instances sont des types référence. L'utilisation de la mémoire et la manière d'y stocker une instance est présentée dans plus en détail dans le chapitre La mémoire.
+
+Pour l'instant, il faut être conscient que lorsqu'une instance est passée en paramètre, est retournée par une méthode ou une fonction ou bien est affectée à une autre variable, il n'y a pas de copie de l'instance qui a été réalisée. Ce qui est recopie, c'est la réference vers cette instance.
+
+Par exemple, supposons qu'une instance de bateau est passée en paramètre. Si une modification est effectué au sein de la méthode, la modification est effective dans l'instance même après la fin de l'appel de la méthode. Car dans cet exemple, il n'y a qu'une seule instance de bateau et plusierus réferences permettant d'accéder à celle-ci.
