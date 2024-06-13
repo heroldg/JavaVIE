@@ -19,7 +19,7 @@ public class TestClientCorrection {
             switch (saisie) {
                 case 1:
                     System.out.println("--Clients--");
-                    for (int i = 0; i < nb - 1; i++) {
+                    for (int i = 0; i < nb; i++) {
                         System.out.println(clients[i].getInfo());
                     }
                     break;
