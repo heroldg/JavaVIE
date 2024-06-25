@@ -21,7 +21,7 @@ public class TestBateau {
 
     // tir en (2;4) : normalement, le bateau n'est pas touché 
     resultatTir = croiseur.testerTir(2, 4);
-    if (resultatTir == 0) {
+    if (resultatTir == 0)    {
         System.out.println("Un tir hor du bateau ne lui a pas causé de dégâts ! tout va bien !");
     } else {
         System.out.println("Il y a un problème ! un tir hors du bateau lui a causé du dégats");

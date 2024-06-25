@@ -30,7 +30,7 @@ public class Grille {
     public Grille() {
         for (int i = 0; i < LARGEUR; i++) {
             for (int j = 0; j < HAUTEUR; j++) {
-                tabGrilles[i][j] = EAU;
+                this.tabGrilles[i][j] = EAU;
             }
         }
 
@@ -40,8 +40,7 @@ public class Grille {
     }
     
     // méthode d'instance deposerBateau()
-    public  void deposerBateau() {
-        Scanner console = new Scanner(System.in);
+    public  void deposerBateau(Scanner console) {
         System.out.println("Où souhaités vous possitionner votre bateau:");
         System.out.println("Sur la longueur:");
         int longitude = console.nextInt() - 1;
@@ -51,11 +50,20 @@ public class Grille {
         
         tabGrilles[longitude][latitude] = 'O';
 
-        console.close();
+    }
+
+    public int[] utilise (int latitude, int longitude) {
+        int[] ret = {latitude, longitude} ;
+        return ret;
     }
     
     // méthode d'instance tirer()
-    public void tirer() {
+    public int[] tirer(int pointX, int pointY ) {
+
+        int[] ret = {pointX, pointY};
+        tabGrilles[pointX][pointY] = 'X';
+
+        return ret;
         
     }
     
