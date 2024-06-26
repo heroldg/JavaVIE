@@ -26,7 +26,7 @@ public class MicroBatailleNavaleV3 {
             gagne = plateauDejeu.tirer(x, y);
             
         } while (!gagne);
-
+        plateauDejeu.afficher();
         System.out.println("Touché coulé ! Bravo, vous avez gagné !");
 
         console.close();
