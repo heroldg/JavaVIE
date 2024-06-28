@@ -14,7 +14,7 @@ public class MicroBatailleNavaleV3 {
         Random r = new Random();
         plateauDejeu = new Grille();
         x = r.nextInt(1, Grille.LARGEUR);
-        x = r.nextInt(1, Grille.HAUTEUR);
+        y = r.nextInt(1, Grille.HAUTEUR);
 
         plateauDejeu.deposerBateau(x, y);
         do {

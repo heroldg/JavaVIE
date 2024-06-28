@@ -39,10 +39,13 @@ public class Grille {
                 if (this.plateau[j][i] == BATEAU || this.plateau[j][i] == EAU ) {
                     System.out.print("?");
                 }
+                
                 else {
                     System.out.print(this.plateau[j][i]);
                 }
             }
+            System.out.println();
+
         }
     }
 }
