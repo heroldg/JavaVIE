@@ -1,0 +1,188 @@
+\documentclass{article}
+
+\usepackage{titling}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{cellspace}
+\usepackage{booktabs}
+
+% En tete de ton CV, le poste que tu recherches
+\title{Software  Engineer}
+% Ton nom et ton prenom + ton age (optionel)
+\author{Herold G, 28}
+\date{}
+
+\geometry{
+    top=1.7cm,
+    bottom=1.7cm,
+    left=2cm,
+    right=2cm
+}
+\pagestyle{empty} % Retire la pagination
+\setlist[itemize]{itemsep=0pt} % Espace entre les items dans une liste
+\setlength{\droptitle}{-5em} % Ajuster la valeur pour augmenter / diminuer le spacing dans le document
+
+\begin{document}
+\maketitle
+\thispagestyle{empty} % Retirer le numéro de la premiere page
+\vspace{-4em}
+
+% Dans cette section, numéro de telephone, email, liens vers linkedin et github et ma ville de recherche
+\begin{center}
++33 6 51 74 07 88 | \href{mailto:herold_guervil@outlook.fr}{\underline{herold_guervil@outlook.fr}} | \href{https://www.linkedin.com/in/herold-guervil-a513a218a/}{\underline{linkedin.com/inchristopherkatoyi/}} | \href{https://github.com/heroldg}{\underline{https://github.com/heroldg}}
+\end{center}
+\begin{center}
+\textbf{Paris, France}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Phrase d'intro qui donne mon expertise
+\begin{center}
+Software Engineer with 3 years of work experience in France. I have dedicated my career to building robust web and mobile applications using a diverse range of technologies including React, Angular, React Native, Symfony and Java.
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables des compétences
+\section*{Technical skills}
+
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+
+  \textbf{Programming} & TDD, DDD, Accessibility, Unit testing, Integration testing  \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Languages} & Typescript/Javascript, Java, Symfony \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Web frontend} & React, modern state management solutions (Redux), design systems (Styled, Tailwind, Panda) \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Mobile frontend} & React Native, Expo \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Backend} & AdonisJS, Django, MySQL, Postgresql, REST \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Tools} & Build tools (Webpack, Vite), Testing tools ( Postman) \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Project management} & Agile methods \\
+  \addlinespace[5pt] % Add margin below this row
+
+  \textbf{Communication} & French (native), English (C1)  
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{4ex}
+\hrulefill
+\section*{Experiences}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% EXPERIENCE 1
+%%
+\paragraph{Senior frontend engineer}\hspace*{\fill}July 2021 - Present
+
+\noindent
+Company 1 | Domain | Toronto, Canada
+
+\raggedright  
+\begin{itemize}
+  \item{Language used}
+  \item{Mission 1}
+  \item{Mission 2}
+\end{itemize}
+%% 
+%% STOP EXPERIENCE 1
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% EXPERIENCE 2
+%%
+\paragraph{Senior frontend engineer}\hspace*{\fill}July 2018 - July 2021
+
+\noindent
+Company 1 | Domain | Toronto, Canada
+
+\raggedright  
+\begin{itemize}
+  \item{Language used}
+  \item{Mission 1}
+  \item{Mission 2}
+\end{itemize}
+%% 
+%% STOP EXPERIENCE 2
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2ex}
+\hrulefill
+\section*{Education}
+\paragraph{M.Sc in Computer Science}\hspace*{\fill}September 2016 - September 2018
+
+\underline{French name}: Master M.I.A.G.E - Méthodes Informatiques appliquées à la Gestion d'Entreprise
+
+Université de Picardie Jules Vernes | Amiens, France
+
+\vspace{\baselineskip}
+
+\textbf{Relevant coursework:} Oriented Object Programming, System programming, Web technologies, Native mobile technologies, Business marketing, Project management
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2ex}
+\hrulefill
+\section*{Projects}
+
+\paragraph{AskLive, Q/A sessions for content creators}  | Micro SASS\hspace*{\fill}Since February 2024
+
+Website: \href{https://asklive.co}{\underline{asklive.co}}
+
+\vspace{\baselineskip}
+
+AskLive is a web platform that connects to the Twitch chat (and other services) to automatically gather questions asked by the audience to a content creator. AskLive enhances content creators' engagement with their community by providing useful tools. It was developed using Elixir/Erlang and SolidJS.
+
+
+
+\paragraph{Concentration, a cross-platform productivity application}  | Micro SASS\hspace*{\fill}Since April 2022
+
+Website: \href{https://concentration.app}{\underline{concentration.app}}
+
+\vspace{\baselineskip}
+
+Concentration is a cross-platform Pomodoro timer that is accessible on Android, iOS, Windows, Linux, and macOS. It was developed using React Native and Tauri (Rust). Initially, it was created as a personal tool for content creation. However, due to its popularity, I decided to release it to the public in April 2023. In just three months, Concentration has gained 2,000 active users.
+
+\vspace{\baselineskip}
+
+\paragraph{Twitch Stream} | Content creation\hspace*{\fill}Since December 2021
+
+Website: \href{https://twitch.tv/llcoolchris_}{\underline{twitch.tv}}
+
+\vspace{\baselineskip}
+
+ began streaming code shortly before the onset of the pandemic, and since then, it has experienced significant growth. The main objective has now shifted to sharing knowledge, offering career advice, and providing a realistic portrayal of the coding world.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2ex}
+\hrulefill
+
+\section*{Activities}
+\begin{itemize}
+  \item Ran 10K for supporting SickKids Toronto
+  \item Took part in a streaming event aimed at raising funds for EndoFrance, an association dedicated to supporting individuals affected by endometriosis. Through our collective efforts, we successfully raised 20,000 euros to aid in their cause.
+\end{itemize}
+\end{document}

@@ -29,15 +29,7 @@ public class Joueur {
     //     int colonne, ligne;
     //     boolean orientHoriz;
     //     do {
-    //         orientHoriz = Outils.choix("Quelle orientation souhaitez-vous pour le " + b.getType() + " ?", orientations) == 1;
-
-    //         if (orientHoriz) {
-                
-    //             ligne = Outils.saisirEntreBornes("ligne ?", 1, GrilleDeJeu.HAUTEUR);
-    //             colonne = Outils.saisirEntreBornes("colonne ?", b.getLongueur(), GrilleDeJeu.LARGEUR) - 1;
-    //         } else {
-                
-    //         }
-    //     } while (condition);
+    //         orientHoriz = Outils.choix("Quelle orientation souhaitez-vous pour le " + b.getType() + " ?");
+    //     }
     // }
 }
