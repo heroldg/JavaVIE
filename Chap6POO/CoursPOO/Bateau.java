@@ -30,6 +30,10 @@ public class Bateau {
         this.positionner(latitude, longitude, horizontal);
     }
 
+    public int getLongueur() {
+        return this.longueur;
+    }
+
     public String getType() {
         return this.type;
     }
