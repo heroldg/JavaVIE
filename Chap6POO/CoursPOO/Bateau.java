@@ -2,12 +2,13 @@ package Chap6POO.CoursPOO;
 
 public class Bateau {
     
+
     // Une classe responsable de ses attributs. Ainsi, pour éviter que les valeurs des attributs puissent être modifiées par n'importe qui, le visibilité private y est placés pour ses attributs. Ses attributs sont des attributs d'instance
-    private String type;
-    private int longueur;
-    private int latitude;
-    private int longitude;
-    private boolean horizontal;
+    protected String type;
+    protected int longueur;
+    protected int latitude;
+    protected int longitude;
+    protected boolean horizontal;
     private int partiesTouchees = 0;
 
     // Cette attribut est un attribut de classe
@@ -125,5 +126,11 @@ public int testerTir(int latitude, int longitude) {
 }
 
 
+public int getNbCasesUtilisees() {
+    return this.longueur;
 }
+
+
+}
+
 
