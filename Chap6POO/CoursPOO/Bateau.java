@@ -1,5 +1,7 @@
 package Chap6POO.CoursPOO;
 
+import Chap7RelationsEntreClasses.CoursRelationEntreClasses.PorteConteneurs;
+
 public class Bateau {
     
 
@@ -18,6 +20,40 @@ public class Bateau {
     public static final int TOUCHE = 1;
     public static final int COULE = 2;
     
+    protected Bateau() {
+
+    }
+
+    public static Bateau creerBateau(String type, int longueur) {
+        Bateau ret = null;
+        if (type.equals("")) {
+            System.out.println(("Le type du bateau ne peut être vide"));
+
+
+        } else if (longueur <= 0) {
+            System.out.println("La taille du bateau doit être strictement positive");
+        } else {
+            ret = new Bateau();
+            ret.initialiser(type, longueur);
+        }
+
+        return ret;
+    }
+
+    public static Bateau creerEtPositionnerBateau(String type, int longueur, int latitude, int longitude, boolean horizontal) {
+        Bateau ret = creerBateau(type, longueur);
+        if (ret != null) {
+            ret.positionner(latitude, longitude, horizontal);
+        }
+        return ret;
+    }
+
+    protected void initialiser(String type, int longueur) {
+        this.type = type;
+        this.longueur = longueur;
+    }
+
+
 
     //constructeur 
     public Bateau(String type, int longueur) {
@@ -47,6 +83,41 @@ public class Bateau {
         }
     }
 
+    public static Bateau creerParType(String type) {
+        Bateau ret = null;
+        switch (type) {
+            case "porte-avions":
+                ret = creerBateau(type, 5);
+                
+                break;
+
+            case "croiseur":
+                ret = creerBateau(type, 4);
+                
+                break;
+
+            case "contre-torpilleur":
+            case "sous-marin":
+                ret = creerBateau(type, 3);
+                
+                break;
+
+            case "torpilleur":
+                ret = creerBateau(type, 2);
+                
+                break;
+            case "porte-conteneurs":
+                ret = new PorteConteneurs(2, 5);
+                
+                break;
+        
+            default:
+                System.out.println("ce type de bateau est inconnu !");
+                break;
+        }
+
+        return ret;
+    }
 
     // méthode de classe afficherReglesPositionnement(): Cette méthode peut même être appelée alors qu'aucune instance de la classe bateau n'a été créée. Il est ainsi possible d'afficher les régles de possionnement des bateaux à un joueur avant même d'avoir commencé une partie et donc crée des instances de bateaux. La capacité des méthodes de classe à être appelées sans avoir d'instance est une caractéristique intéressante. Il est par exemple possible de créer une méthode de classe capable de créer des instances de celle-ci. 
     public static void afficherReglesPositionnement() {
@@ -66,12 +137,12 @@ public class Bateau {
     }
     
 
-    // methodes d'instance qui est une procédures permettant d'initialiser les caractéristiques d'un bateau
-    public void initialiser(String type, int longueur) {
-        this.type = type;
-        this.longueur = longueur;
+    // // methodes d'instance qui est une procédures permettant d'initialiser les caractéristiques d'un bateau
+    // public void initialiser(String type, int longueur) {
+    //     this.type = type;
+    //     this.longueur = longueur;
 
-    }
+    // }
 
     public void positionner(int latitude, int longitude, boolean horizontal) {
         this.latitude = latitude;

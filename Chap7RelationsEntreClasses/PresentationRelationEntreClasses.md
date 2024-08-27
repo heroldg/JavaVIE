@@ -264,8 +264,54 @@ Les méthodes de classe n'ont pas besoin d'une instance pour être appelées. El
 
 ### 5.1 L'encapsulation des constructeurs
 
-À l'instar des attributs qui sont protégés en application du principe d'encapsulation, l'accès aux constructeurs peut également petre contrôlé. Pour mettre cela en place, il faut que la classe ne possède que des constructeurs privés, ou protégés si des classes en héritent . Si la classe ne possède aucun constructeur explicite, n'oubliez pas qu'un constructeur par défaut est fourni et que celui-ci est public. Dans ce cas, vous pouvez créer explicitememnt un constructeur avec une visibilité privée ou protégée ne prenan tpas d'argument et n'ayant aucune instruction,ainsi le constructeur par défaut n'est pas ajouté.
+À l'instar des attributs qui sont protégés en application du principe d'encapsulation, l'accès aux constructeurs peut également être contrôlé. Pour mettre cela en place, il faut que la classe ne possède que des constructeurs privés, ou protégés si des classes en héritent. Si la classe ne possède aucun constructeur explicite, n'oubliez pas qu'un constructeur par défaut est fourni et que celui-ci est public. Dans ce cas, vous pouvez créer explicitememnt un constructeur avec une visibilité privée ou protégée ne prenant pas d'argument et n'ayant aucune instruction, ainsi le constructeur par défaut n'est pas ajouté.
 
-Depuis l'extérieur de la classe, il n'est plus possible de faire appel à un constructeur de celle-ci. Le seul moyen pour créer une instance est donc de faire appel à une méthode de classe retournant une instance de celle-ci. Cette encapsultion permet de n'appeler le constructeur qu'une fois que toutes les régles métier ont été vérifiés. La création d'une instance est un processus coûteux, ainsi, le constructeur n'est appelée que si réellement une instance doit être crée (lorsqu'une règle métier est vérifiée au sein d'un constructeur public et n'est pas satisfaite, il est possible d'interrompre le traitement, mais 'le mal est déja fait'). De plus, afin de produire un code efficace, il faut éviter de faire appel à des méthodes qui peuvent être suvstituées dans le constructeur.
+Depuis l'extérieur de la classe, il n'est plus possible de faire appel à un constructeur de celle-ci. Le seul moyen pour créer une instance est donc de faire appel à une méthode de classe retournant une instance de celle-ci. Cette encapsultion permet de n'appeler le constructeur qu'une fois que toutes les régles métier ont été vérifiés. La création d'une instance est un processus coûteux, ainsi, le constructeur n'est appelée que si réellement une instance doit être crée (lorsqu'une règle métier est vérifiée au sein d'un constructeur public et n'est pas satisfaite, il est possible d'interrompre le traitement, mais 'le mal est déja fait'). De plus, afin de produire un code efficace, il faut éviter de faire appel à des méthodes qui peuvent être substituées dans le constructeur.
 
-Les classes héritant de celle-ci doivent quelque peu être modifiées, puisque les constructeurs ont évolué.
+Les classes héritant de celle-ci doivent quelque peu être modifiées, puisque les constructeurs ont évolué. [| c.f Class Bateau |](/Chap6POO/CoursPOO/Bateau.java).
+
+Dans cet, exemple les constructeurs publics ont été supprimés et remplacés par un constructeurs protégé sans argument et n'éffzctuant aucune instructions. Deux méthodes de classe permettent de créer des instances de Bateau:
+`creerBateau()` et `creerEtPositionnerBateau()`. Dans le première, l'ensemble des règles métier sont vérifiées avant de créer une instance de cette classe `Bateau`. La seconde fait appel à la première pour réaliser cela.
+
+### 5.2 Un nommage différent pour les créateurs d'instance
+
+La fabrique d'instances par méthode de classe permet, contraitement aux constructeurs, de nommer à notre convenance la méthode. Dans l'exemple précédent, les méthodes de classe se nomment `creerBateau()` et `creerEtPositionnerBateau()`, ce qui est plus explicite sur la manière d'initialiser l'instance créeée.
+
+Comparons par exemple la classe GreGorianCalendar, utisant des constructeurs publics, à la classe LocalDateTime, utilisant des méthodes de classe pour fabriquer ses instances. Les deux classes sont à peu près équilaventes pour fabriques ses instances. Les deux classes sont sont à peu près équivalentes au niveau des fonctionnalités. La première existe depuis le début de Java et possède des constructeurs publics alors que la seconde a été introduite plus récemment, dans la version 8 de Java, et n'a pas de constructeur public, mais des méthodes de classes pour céer ses instances
+[DateTest](./DateTest.java)
+
+Pour comprendre comment l'instance `gc1` est initialisée, il faut nécessairement la documentation. Celle-ci initialise l'instance à la date et à l'heure actuelles. Par contre, pour l'instance `ld1`, l'appel à l'appel à la méthode de classe `now()` permet immédiatement de comprendre comment celle-ci est initialisée.
+
+Pour créer une instance initialisée à une date souhaitée, les instances `gc2` et `ld2` sont à peu près aussi compréhensibles l'une que l'autre (à la différence près que le numéro du mois est compris entre zéro (janvier) et onze (décembre) au lieu d'entre un et douze, ce qui est plus naturel).
+
+La classe `LocalDateTime` permet de créer une instance en analysant une chaîne de caractères.
+
+Les trois méthodes de classe utlisées dans cet exemple ont des noms différents permettant de comprendre comment est initialisée l'instance créée. C'est le côté positif ! Le revers de la médaille est que ce nommage plus libre n'est plus systématique comme l'est le constructeur.
+
+Néanmoins, les méthodes de classe permettant de constuire des instances se nomment souvent parse(), of() ou ofXXX() (XXX étant remplacé par le mot indiquant l'élément permettant l'initlialisation, comme dans l'exemple du paragraphe suivant). Cela n'est pas aussi systématique que pour les constructeurs, mais cela permet de les repérer assez rapidement.
+
+Une autre possibilité découlant de la plus grande liberté pour nommer ces méthodes est que plusieurs peuvent prendre les mêmes types et nombre d'arguments, ce qui n'est pas possible avec la surcharge de constructeurs. La fabriquer des instances prenant en paramètre un entier: `ofDays()`, `ofHour()`, `ofMinutes()`... Comme leurs noms sont différents, il n'y a pas d'ambiguïté sur la méthode à appeler, alors qu'avec des constructeurs surchargés cela ne serait pas possible.
+
+### 5.3 Le renvoi d'un sous-type
+
+Un constructeur produit forcément une instance de la classe dans laquelle il est défini.
+
+Grâce au transtypage ascendant, une méthode devant retourner un type donné peut retourner une instance de ce type, mais également une instance de l'un des types héritant plus ou moins directement de celui-ci.
+
+Une méthode de classe permettant de créer une instance peut donc renvoyer soit une instance de cette classe soit, si cela est plus adapté, une instance d'une classe enfants.
+
+## 6. EXERCICES
+
+### 6.1 La bataille de dés
+
+Prérequis: Exercice 1 du chapitre La programmation orientée objet
+
+Deux joueurs s'affrontent dans une bataille de dès: chaque joueur possède un dé à six faces et dix jetons.
+
+Créer une Classe [JoueurBataille](./ExerciceLesRelationsEntreClasses/ExoBatailleDeDes/JoueurBataille.java) ayant comme attibuts d'instance le nombre de jetons, un dé (une instance de la classe `De`) et le nom du joueur. Ajouter au sein de cette classe les autres éléments nécessaires. Créer un algothrime principal utilisant cette classe.
+
+### 6.2 Les clients(version 2)
+
+Prérequis: Exercice 2 du chapitre La programmation orientée objet
+
+Les clients crées au chapitre précédent peuvent commander des livres et des vidéos chez notre éditeur. Les livres et les vidéos possèdent tous un titre et un auteur. Un livre possède un nombre de pages alors qu'une vidéo possède une durée. Créer une Classe [Oeuvre](./ExerciceLesRelationsEntreClasses/LesClients/Oeuvres.java) regroupant les éléments communs aux livres et aux vidéos et deux Classes [Livre](./ExerciceLesRelationsEntreClasses/LesClients/Livre.java) et [Video](./ExerciceLesRelationsEntreClasses/LesClients/Video.java) héritant de celle-ci avec les éléments spécifiques à chacune. Créer ensuite une Classe [Commande](./ExerciceLesRelationsEntreClasses/LesClients/Commande/Commande.java) associant à un client un ensemble d'œuvres commandées.

@@ -74,7 +74,7 @@ public class Joueur {
         return ok;
     }
 
-    private boolean tirer() {
+    public boolean tirer() {
         this.champDeTir.afficher();
         int lat = Outils.saisirEntreBornes("ligne ?", 1, GrilleDeJeu.HAUTEUR) - 1;
         int lon = Outils.saisirEntreBornes("colonne ?", 1, GrilleDeJeu.LARGEUR) - 1;
