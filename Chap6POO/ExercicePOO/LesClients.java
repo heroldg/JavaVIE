@@ -6,8 +6,15 @@ public class LesClients {
     
     private String nom;
     private int numeroClient;
+    int nbClients = 0;
 
-    public LesClients(String nom, int numeroClient) {
+    public LesClients() {
+        this.nom = this.getNom();
+        this.numeroClient = numeroClient + 1;
+    }
+    
+
+    LesClients(String nom, int numeroClient) {
         this.nom = nom;
         this.numeroClient = numeroClient + 1;
     }
@@ -32,7 +39,10 @@ public class LesClients {
         System.out.println("-- Menu --");
         System.out.println("1 - Afficher les clients");
         System.out.println("2 - Créer un clients");
-        System.out.println("3 - Quitter");
+        System.out.println("3 - Créer une œuvre");
+        System.out.println("4 - Créer une commande");
+        System.out.println("5 - Afficher les commandes");
+        System.out.println("6 - Quitter");
     }
 
 
@@ -47,7 +57,7 @@ public class LesClients {
         int indexTab = 0;
 
 
-        while (choix != 3) {
+        while (choix != 6   ) {
             LesClients.afficherLeMenu();
             choix = console.nextInt();
             switch (choix) {
@@ -70,7 +80,7 @@ public class LesClients {
                 indexTab++;    
                     break;
             
-                case 3:
+                case 6:
                     
                     break;
             

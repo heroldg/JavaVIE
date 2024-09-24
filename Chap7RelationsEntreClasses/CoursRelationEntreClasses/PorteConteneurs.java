@@ -24,6 +24,6 @@ public class PorteConteneurs extends Bateau {
     public boolean utilise(int latitude, int longitude) {
 
        return this.horizontal && this.latitude <= latitude && latitude <= this.latitude + this.largeur && this.longitude <= longitude && longitude < this.longitude + this.longueur || !this.horizontal && this.longitude <= longitude && longitude < this.longitude + this.largeur && this.latitude <= latitude && latitude < this.latitude + this.longueur;
-    
+        
     }
 }
