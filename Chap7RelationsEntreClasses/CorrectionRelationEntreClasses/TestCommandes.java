@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class TestCommandes {
     private static int nbOeuvres = 0;
     private static int nbCommandes = 0;
-    private static int nb, saisie, nbPages, duree;
+    private static int nb = 0, saisie, nbPages, duree;
     private static String nom, titre, auteur;
+
     
     public static void main(String[] args) {
         
@@ -30,7 +31,7 @@ public class TestCommandes {
 
             switch (saisie) {
                 case 1:
-
+                    System.out.println("-------CLIENTS-------");
                     for (int i = 0; i < nb; i++) {
                         System.out.println(clients[i].getInfo());
                     }
@@ -43,24 +44,24 @@ public class TestCommandes {
                         nom = console.nextLine();
                         clients[nb] = new CLIENTS(nom);
                         System.out.println(clients[nb].getInfo() + " ajouté");
+                        nb++;
                     break;
 
                 case 3:
-
                         System.out.println("Type ?");
                         System.out.println("1 - Livre");
                         System.out.println("2 - Vidéo");
                         saisie = console.nextInt();
                         console.nextLine();
                         
-                        System.out.println("Titre");
+                        System.out.println("Titre ?");
                         titre = console.nextLine();
                         
-                        System.out.println("Auteur");
+                        System.out.println("Auteur ?");
                         auteur = console.nextLine();
 
                         if (saisie == 1 ) {
-                            System.out.println("Nombre de pages  ?");
+                            System.out.println("Nombre de pages ?");
                             nbPages = console.nextInt();
                             console.nextLine();
                             oeuvres[nbOeuvres] = new LivreCorrection(titre, auteur, nbPages);
@@ -69,6 +70,7 @@ public class TestCommandes {
                         } else {
                             System.out.println("Durée (minutes) ?");
                             duree = console.nextInt();
+                            console.nextLine();
                             oeuvres[nbOeuvres] = new VideoCorrection(titre, auteur, duree);
                         }
 
@@ -79,9 +81,10 @@ public class TestCommandes {
                         
                     case 4:
                         System.out.println("Pour quel client ?");
-                        for (int i = 0; i < nb - 1; i++) {
+                        for (int i = 0; i < nb; i++) {
                             System.out.println(i + 1 + " - " + clients[i].getNom());
                         }
+
 
                         saisie = console.nextInt() - 1;
                         console.nextLine();
@@ -89,13 +92,13 @@ public class TestCommandes {
 
                         while (saisie != nbOeuvres ) {
                             System.out.println("Quelle oeuvre ajouter à la commande ?");
-                            for (int i = 0; i < nbOeuvres - 1; i++) {
+                            for (int i = 0; i < nbOeuvres ; i++) {
                                 System.out.println(i + 1 + " - " + oeuvres[i].getInfo());
                             }
                             System.out.println(nbOeuvres + 1 + " - Terminer commande");
                             saisie = console.nextInt() - 1;
                             console.nextLine(); 
-                            if (0 < saisie & saisie < nbOeuvres) {
+                            if (0 <= saisie & saisie < nbOeuvres) {
                                 com.ajouter(oeuvres[saisie]);
                             }
                         }
@@ -107,10 +110,11 @@ public class TestCommandes {
                     
                     case 5:
                         System.out.println("------Commandes------");
-                        for (int i = 0; i < commandes.length - 1; i++) {
-                            System.out.println(" * " + commandes[i].getInfo());
+                        for (int i = 0; i < nbCommandes; i++) {  // Utilisez nbCommandes au lieu de commandes.length
+                            if (commandes[i] != null) {  // Vérifiez que la commande n'est pas nulle
+                                System.out.println(" * " + commandes[i].getInfo());
+                            }
                         }
-
                         break;
             
                 default:

@@ -1,36 +1,32 @@
-package Chap7RelationsEntreClasses.ExerciceLesRelationsEntreClasses.LesClients;
+    package Chap7RelationsEntreClasses.ExerciceLesRelationsEntreClasses.LesClients;
 
-public class Video extends Oeuvres {
+    public class Video extends Oeuvres {
 
-    private int minutes;
-    private int numeroVideo;
-    
+    private int minutesVideo;
 
-    // public Video () {
-    //     this.titre = getTitre();
-    //     this.auteur = getAuteur();         
-    //     this.minutes = getMinutes();
-    //     this.numeroVideo = numeroVideo + 1;
-    // }
-
-    public Video(int minutes, String titre, String auteur) {
-        super( auteur, titre);
-        this.minutes = minutes;
+    // Constructeur Oeuvres Vidéo
+    public Video(String titre, String auteur, int minutesVideo) {
+        super(titre, auteur);
+        this.minutesVideo = minutesVideo;
     }
 
-    public int getMinutes() {
-        return this.minutes;
+    public int getMinutesVideo() {
+        return this.minutesVideo;
     }
 
-    public String getTitre() {
-        return this.titre;
-    }
-
-    public String getAuteur() {
-        return this.auteur;
-    }
-
-
-    
-    
+   // Doit convertir la durée en heures et minutes
+public String getMinutesVideoInHours() {
+    return ((this.minutesVideo / 60) < 10 ? "0" + this.minutesVideo / 60 : this.minutesVideo / 60)
+            + "h" + ((this.minutesVideo % 60) < 10 ? "0" + this.minutesVideo % 60 : this.minutesVideo % 60);
 }
+
+    @Override
+    public String getInfo() {
+        return "Vidéo " + super.getInfo() + " (" +this.getMinutesVideoInHours() + ")";
+    }
+
+
+
+        
+        
+    }

@@ -2,7 +2,7 @@ package Chap7RelationsEntreClasses.CorrectionRelationEntreClasses;
 
 
 public class CommandeCorrection {
-    final int MAX_OEUVRES = 10;
+    final int MAX_OEUVRES = 20;
     OeuvreCorrection[] oeuvresCommandes = new OeuvreCorrection[MAX_OEUVRES];
     int nbOeuvres = 0;
     CLIENTS cli;
@@ -26,7 +26,7 @@ public class CommandeCorrection {
     public String getInfo() {
         StringBuilder r = new StringBuilder("Commande de " + this.cli.getNom() + " :\n"); // Utilise StringBuilder pour la performance
 
-        for (int i = 0; i < this.nbOeuvres; i++) {
+        for (int i = 0; i < nbOeuvres; i++) {
             r.append("- ").append(this.oeuvresCommandes[i].getInfo()).append("\n"); // Concatène chaque œuvre avec un saut de ligne
         }
 

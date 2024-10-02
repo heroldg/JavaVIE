@@ -2,25 +2,22 @@ package Chap7RelationsEntreClasses.ExerciceLesRelationsEntreClasses.LesClients;
 
 public class Livre extends Oeuvres {
 
-    private int pages;
-    private int numeroRefLivre;
+    private int nbpages;
 
 
-    public Livre(int pages, String titre, String auteur) {
+    public Livre(String titre, String auteur, int nbpages) {
         super(auteur, titre);
-        this.pages = pages;
-        numeroRefLivre = numeroRefLivre + 1;
+        this.nbpages = nbpages;
     } 
 
     public int getPages() {
-        return this.pages;
+        return this.nbpages;
     }
 
-    public int getNumeroRefLivre() {
-        return this.numeroRefLivre;
+    @Override
+    public String getInfo() {
+        return "Livre " + super.getInfo() + " (" + this.nbpages + ") pages";
     }
-
-
 
     
 }

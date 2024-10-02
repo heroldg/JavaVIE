@@ -7,8 +7,8 @@ public class CLIENTS {
 
     public CLIENTS(String nom) {
         this.nom = nom;
-        this.numClient = CLIENTS.nbClients;
         nbClients++;  // Incrémentation du nombre de clients chaque fois qu'un nouveau client est créé
+        this.numClient = CLIENTS.nbClients;
     }
 
     public String getInfo() {

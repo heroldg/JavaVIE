@@ -14,6 +14,6 @@ public class VideoCorrection extends OeuvreCorrection {
 
     @Override
     public String getInfo() {
-        return "Vidéo " + super.getInfo() + " (" + this.dureeMinutes / 60  +  (dureeMinutes % 60 < 10 ? "0" + dureeMinutes % 60 :  dureeMinutes % 60 );
+        return "Vidéo " + super.getInfo() + " (" +  (((this.dureeMinutes / 60) < 10 ? "0" + this.dureeMinutes / 60 :  this.dureeMinutes / 60) + "h" + ((this.dureeMinutes % 60) < 10 ? "0" + this.dureeMinutes % 60 : this.dureeMinutes % 60 ) + ")" );
     }
 }

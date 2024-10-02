@@ -13,9 +13,8 @@ public class LivreCorrection extends OeuvreCorrection {
     }
 
     @Override
-
     public String getInfo() {
-        return "Livre" + super.getInfo() + " ( " + this.nbPages + " pages)";
+        return "Livre " + super.getInfo() + " (" + this.nbPages + " pages)";
     }
 
 }
