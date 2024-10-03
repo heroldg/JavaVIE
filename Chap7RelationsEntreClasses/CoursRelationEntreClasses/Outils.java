@@ -4,6 +4,20 @@ import java.util.Scanner;
 
 public class Outils {
     private static Scanner s = new Scanner(System.in);
+    public static String saisir(String message) {
+        // Afficher le message d'invite
+        System.out.println(message);
+        String saisie = ""; 
+        boolean ok;
+        do {
+            saisie = Outils.s.nextLine();
+            ok = saisie != "";
+
+
+        } while (!ok);
+        
+        return saisie;
+    }
 
     public static int saisirEntreBornes(String message, int min, int max) {
         System.out.printf("%s", message);
