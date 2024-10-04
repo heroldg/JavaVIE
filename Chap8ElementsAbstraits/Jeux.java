@@ -9,6 +9,7 @@ public class Jeux {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int choix;
+        // Ajouter les nouveaux jeux
         Jouable[] jeuxDisponibles = {new BatailleNavaleAbstract() };
         do {
             System.out.println(" === Menu Principal ===");

@@ -12,7 +12,7 @@ public class Outils {
         do {
             saisie = Outils.s.nextLine();
             ok = saisie != "";
-
+            
 
         } while (!ok);
         

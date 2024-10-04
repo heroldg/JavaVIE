@@ -34,6 +34,7 @@ public class JoueurOrdinateur extends Joueur{
 
     @Override
     public boolean tirer() {
+        this.champDeTir.afficher();
         int lat, lon;
         do {
             lat = JoueurOrdinateur.r.nextInt(GrilleDeJeu.HAUTEUR);

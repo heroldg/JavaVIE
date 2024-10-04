@@ -53,10 +53,10 @@ public class BatailleNavaleAbstract implements Jouable{
             for (Joueur joueurs : joueurs) {
                 System.out.println("C'est à " + joueurs.getNom() + " de positionner ses bateaux");
                 joueurs.positionnerBateau(Bateau.creerBateau("porte-avions", 5));
-                joueurs.positionnerBateau(Bateau.creerBateau("croiseur", 4));
-                joueurs.positionnerBateau(Bateau.creerBateau("contre-torpilleur", 3));
-                joueurs.positionnerBateau(Bateau.creerBateau("sous-marin", 3));
-                joueurs.positionnerBateau(Bateau.creerBateau("torpilleur", 2));
+                // joueurs.positionnerBateau(Bateau.creerBateau("croiseur", 4));
+                // joueurs.positionnerBateau(Bateau.creerBateau("contre-torpilleur", 3));
+                // joueurs.positionnerBateau(Bateau.creerBateau("sous-marin", 3));
+                // joueurs.positionnerBateau(Bateau.creerBateau("torpilleur", 2));
 
             }
 
