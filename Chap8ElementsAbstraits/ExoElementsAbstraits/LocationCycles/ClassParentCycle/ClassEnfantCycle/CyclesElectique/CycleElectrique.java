@@ -7,8 +7,8 @@ public class CycleElectrique extends Cycles {
     private int autonomieKM;
 
 
-    public CycleElectrique(String marque, String modele,String dateDachat, int autonomieKM) {
-        super(marque, modele, dateDachat);
+    public CycleElectrique(String marque, String modele, int jour, int mois, int annee , int autonomieKM) {
+        super(marque, modele, jour, mois, annee);
         this.autonomieKM = autonomieKM;
     }
 

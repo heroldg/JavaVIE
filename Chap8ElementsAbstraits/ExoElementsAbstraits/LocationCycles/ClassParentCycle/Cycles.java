@@ -1,5 +1,6 @@
 package Chap8ElementsAbstraits.ExoElementsAbstraits.LocationCycles.ClassParentCycle;
 
+
 import Chap8ElementsAbstraits.ExoElementsAbstraits.LocationCycles.OutilsCycles.OutilsCycles;
 
 public abstract class Cycles {
@@ -8,16 +9,22 @@ public abstract class Cycles {
     protected String dateDachat;
     protected Double tarifCycle;
 
+    protected int jour;
+    protected int mois;
+    protected int annee;
+
     protected int nbCycles;
 
     // Constructeur mais pas sûr de sa construction ...
-    public Cycles(String marque, String modele, String dateDachat) {
+    public Cycles(String marque, String modele, int jour, int mois, int annee  ) {
         this.marque = marque;
         this.modele = modele;
         // LA MANIĒRE DE FAIRE POUR DATEdACAHAT NE FONCTIONNE PAS !!
-        this.dateDachat = this.getDateDachat();
+        this.dateDachat = OutilsCycles.dateWriteString( jour, mois, annee);
         this.nbCycles++;
     }
+
+    
 
 
     // Getters
@@ -32,7 +39,6 @@ public abstract class Cycles {
 
     public String getDateDachat() {
         
-        this.dateDachat = OutilsCycles.dateCycles("Écrivez la date d'achat de votre " + this.modele);
 
         return this.dateDachat;
     }
@@ -42,7 +48,7 @@ public abstract class Cycles {
     }
 
    public String getInfo() {
-    return this.modele + " " + this.marque + "| " + this.dateDachat + " | ";
+    return this.marque+ " " + this.modele  + " | " + this.dateDachat + " | ";
    }
 
 

@@ -5,8 +5,8 @@ import Chap8ElementsAbstraits.ExoElementsAbstraits.LocationCycles.ClassParentCyc
 public class Velo  extends Cycles{
     private  int nbVitesses;
 
-    public Velo(String marque, String modele,String dateDachat, int nbVitesses) {
-        super(marque, modele, dateDachat);
+    public Velo(String marque, String modele, int jour, int mois, int annee, int nbVitesses) {
+        super(marque, modele,  jour, mois, annee);
         this.tarifCycle = 4.90;
         this.nbVitesses = nbVitesses;
     }
@@ -17,7 +17,7 @@ public class Velo  extends Cycles{
 
     @Override
     public String getInfo() {
-        return super.getInfo() + " " + this.nbVitesses + " vitesses" + this.tarifCycle + "/heure";
+        return "- Vélo " +super.getInfo() + " " + this.nbVitesses + " vitesses " + this.tarifCycle + " euros/heure";
     }
 
 }

@@ -1,9 +1,20 @@
 package Chap8ElementsAbstraits.ExoElementsAbstraits.LocationCycles.OutilsCycles;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class OutilsCycles {
     private static Scanner s = new Scanner(System.in);
+
+    public static String dateWriteString( int jour, int mois, int annee) {
+
+        LocalDate ld2 = LocalDate.of(annee, mois, jour);  // Utiliser LocalDate au lieu de LocalDateTime
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        String formattedDate = ld2.format(formatter);
+
+        return formattedDate;
+    } 
 
     public static String dateCycles(String message) {
         System.out.println(message);
