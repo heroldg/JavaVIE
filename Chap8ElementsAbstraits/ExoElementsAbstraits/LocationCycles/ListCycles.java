@@ -7,12 +7,15 @@ import Chap8ElementsAbstraits.ExoElementsAbstraits.LocationCycles.ClassParentCyc
 
 public class ListCycles {
 
-    public static final int MAX_CYCLES = 10;
+    public static final int MAX_CYCLES = 1000;
     
     
     public static void main(String[] args) {
         Cycles[] tabCyclesALouer = new Cycles[MAX_CYCLES];
+        int nbCycles = 6;
 
+
+        
         tabCyclesALouer[0] = new Velo("Lapierre", "speed 400",  2, 12, 2012, 27);
 
         tabCyclesALouer[1] = new Velo("Btwin", "riverside 900",  23, 10, 2019, 10);
@@ -25,7 +28,7 @@ public class ListCycles {
         tabCyclesALouer[5] = new Gyroroues("Segway ", "Ninebot One E+", 2, 2, 2024, 30);
         
         
-        for (int i = 0; i < 6 - 1; i++) {
+        for (int i = 0; i < nbCycles; i++) {
             System.out.println(tabCyclesALouer[i].getInfo());
         }
     }

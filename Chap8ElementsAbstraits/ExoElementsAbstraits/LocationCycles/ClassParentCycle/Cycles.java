@@ -13,7 +13,7 @@ public abstract class Cycles {
     protected int mois;
     protected int annee;
 
-    protected int nbCycles;
+    protected int nbCycles = 0;
 
     // Constructeur mais pas sûr de sa construction ...
     public Cycles(String marque, String modele, int jour, int mois, int annee  ) {
@@ -24,7 +24,6 @@ public abstract class Cycles {
         this.nbCycles++;
     }
 
-    
 
 
     // Getters
@@ -32,6 +31,11 @@ public abstract class Cycles {
 
         return this.marque;
     }
+
+    public int getBnCycles() {
+        return this.nbCycles;
+    }
+
 
     public String getModele() {
         return this.modele;
